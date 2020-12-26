@@ -1,0 +1,30 @@
+int main(int argc, char **argv) {
+  int x = 0;
+  int y = 5;
+  int res_add = x + y;
+  int res_sub = x - y;
+  int res_mul = x * y;
+  int res_div = x / y;
+  int res_mod = x % y;
+  int res_postinc = x++;
+  int res_preinc = ++x;
+  int res_postdec = y--;
+  int res_predec = --y;
+  int res_band = x & y;
+  int res_bor = x | y;
+  int res_bxor = x ^ y;
+  int res_bneg = ~x;
+  int res_lshift = x << 3;
+  int res_rshift = x >> 3;
+  int res_and = x && y;
+  int res_or = x || y;
+  int res_neg = !x;
+  int res_eq = x == y;
+  int res_ne = x != y;
+  int res_lt = x < y;
+  int res_le = x <= y;
+  int res_ge = x >= y;
+  int res_gt = x > y;
+  int res_ternary = x == y ? 1 : 0;
+  return 0;
+}
