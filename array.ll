@@ -49,7 +49,7 @@ for.inc:                                          ; preds = %for.body3
   %6 = load i32, i32* %j, align 4
   %inc = add nsw i32 %6, 1
   store i32 %inc, i32* %j, align 4
-  br label %for.cond1
+  br label %for.cond1, !llvm.loop !6
 
 for.end:                                          ; preds = %for.cond1
   br label %for.inc6
@@ -58,19 +58,24 @@ for.inc6:                                         ; preds = %for.end
   %7 = load i32, i32* %i, align 4
   %inc7 = add nsw i32 %7, 1
   store i32 %inc7, i32* %i, align 4
-  br label %for.cond
+  br label %for.cond, !llvm.loop !8
 
 for.end8:                                         ; preds = %for.cond
   %8 = load i32, i32* %retval, align 4
   ret i32 %8
 }
 
-attributes #0 = { noinline nounwind sspstrong uwtable "correctly-rounded-divide-sqrt-fp-math"="false" "disable-tail-calls"="false" "frame-pointer"="all" "less-precise-fpmad"="false" "min-legal-vector-width"="0" "no-infs-fp-math"="false" "no-jump-tables"="false" "no-nans-fp-math"="false" "no-signed-zeros-fp-math"="false" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "unsafe-fp-math"="false" "use-soft-float"="false" }
+attributes #0 = { noinline nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2}
-!llvm.ident = !{!3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.ident = !{!5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 7, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
-!3 = !{!"clang version 11.0.0"}
+!3 = !{i32 7, !"uwtable", i32 1}
+!4 = !{i32 7, !"frame-pointer", i32 2}
+!5 = !{!"clang version 13.0.1"}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
